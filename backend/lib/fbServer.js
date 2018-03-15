@@ -10,22 +10,22 @@ const fbServer = new FirebaseServer(fbServerPort, `localhost:${fbServerPort}`,
 /* This object is the initial state of the database */
 {
   sensors: {
-    '-L7ekcwFENwqFCK1EDwi': {
+    '1': {
       id: 1,
       name: 'North Sensor',
       description: 'The sensor in the north'
     },
-    '-L7ekg6sDqslDLE5GL_P': {
+    '2': {
       id: 2,
       name: 'South Sensor',
       description: 'The south field sensor'
     },
-    '-L7ekgGFInKics3dN8LM': {
+    '3': {
       id: 3,
       name: 'East Sensor',
       description: 'The sensor on the east side'
     },
-    '-L7ekgO-lDTAeT9G8dPi': {
+    '4': {
       id: 4,
       name: 'West Sensor',
       description: 'The western most sensor',
