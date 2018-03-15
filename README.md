@@ -12,11 +12,11 @@
 
 ## Running
 ### `frontend`
-`npm start` will start a build of the react application that will livereload.
+`npm install ` then `npm start` will start a build of the react application that will livereload.
 It was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app).
 
 ### `backend`
-`npm start` will start both the express and firebase server (using [concurrently](https://www.npmjs.com/package/concurrently)).  The express server will restart whenever it detects changes (using [nodemon](https://www.npmjs.com/package/nodemon)).  If you need to reset the firebase database, restart the script. 
+`npm install ` then `npm start` will start both the express and firebase server (using [concurrently](https://www.npmjs.com/package/concurrently)).  The express server will restart whenever it detects changes (using [nodemon](https://www.npmjs.com/package/nodemon)).  If you need to reset the firebase database, restart the script. 
 
 ## Backend notes
 You can see the data initially stored in the database at `backend/lib/fbServer.js`.  The database is stored in memory, so any data stored will be lost when you stop the process.
