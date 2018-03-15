@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "firebase-server": "^0.12.0",
+    "firebase-admin": "^5.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.2"
+  },
+  "scripts": {
+    "start": "concurrently --names \"EXPRESS,FIREBASE\" \"nodemon src/server.js\" \"node lib/fbServer.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
