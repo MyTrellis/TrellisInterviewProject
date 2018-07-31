@@ -1,4 +1,6 @@
 # Trellis Internship Interview Project
+Trellis is a growing AgTech/IoT startup where we use wireless sensors to help users make better business decisions. A common feature in our applications is to display a list of sensors that shows a high level summary, but let users click on an individual sensor to view more information. This project is a small example of this typical use case. We want to understand your ability to read/understand an existing codebase, make design and architecture decisions, and develop a full stack application.
+
 ### This repo contains the following:
 - A react application that displays a list of sensors.  The react application can be found in the `frontend` folder.
 - An express server, which contains one route that serves up the list of sensors.  It can be found in the `backend` folder.
