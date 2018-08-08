@@ -7,7 +7,6 @@ const db = {
       id: 1,
       name: 'North Sensor',
       description: 'The sensor in the north, check',
-      type: 'will this show?'
     },
     {
       id: 2,
@@ -50,9 +49,9 @@ app.get('/sensors', (req, res) => {
   res.json(db.sensors);
 });
 
-app.get('/sensor/:id' (req, res) => {
-  res.json(db.sensors[req.params.id])
-})
+// app.get('/sensor/:id' (req, res) => {
+//   res.json(db.sensors[req.params.id])
+// })
 
 const PORT = 9000;
 app.listen(PORT);
