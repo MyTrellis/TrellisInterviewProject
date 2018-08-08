@@ -50,6 +50,10 @@ app.get('/sensors', (req, res) => {
   res.json(db.sensors);
 });
 
+app.get('/sensor/:id' (req, res) => {
+  res.json(db.sensors[req.params.id])
+})
+
 const PORT = 9000;
 app.listen(PORT);
 console.log('Express listening on port ' + PORT);
