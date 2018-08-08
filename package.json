@@ -1,0 +1,19 @@
+{
+  "name": "trellisinterviewproject",
+  "version": "1.0.0",
+  "description": "Trellis is a growing AgTech/IoT startup where we use wireless sensors to help users make better business decisions. A common feature in our applications is to display a list of sensors that shows a high level summary, but let users click on an individual sensor to view more information. This project is a small example of this typical use case. We want to understand your ability to read/understand an existing codebase, make design and architecture decisions, and develop a full stack application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benkerns09/TrellisInterviewProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benkerns09/TrellisInterviewProject/issues"
+  },
+  "homepage": "https://github.com/benkerns09/TrellisInterviewProject#readme"
+}
