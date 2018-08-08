@@ -13,10 +13,17 @@ class SensorList extends React.Component {
       sensors: [],
       loading: true,
       error: '',
+      showDetail: false,
     };
   }
 //properties: sensors, loading, error
 //telling react to set these props to ([], true, '')
+
+  showDetail(id) {
+    this.setState({
+      showDetail: id
+    })
+  }
 
   componentDidMount() {
     getSensors()
@@ -51,8 +58,8 @@ class SensorList extends React.Component {
             <div key={id} className="SensorListItem">
               <div className="SensorListName">{name}</div>
               <div className="SensorListDescription">{description}</div>
-              <div className="SensorListType">{type}</div>
-              <SensorDetail/>
+              <button onClick={() => {this.showDetail(id)}}>Show Detail</button>
+              {this.state.showDetail === id && (<SensorDetail sensorId={id} />)}
 {/* //details. when clicked, takes you to new route or shows new componnet */}
             </div>
           ))
