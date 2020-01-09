@@ -1,41 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./SensorList.css";
 
-import { getSensors } from "../../services/SensorService";
+import { getSensors, Sensor } from "../../services/SensorService";
 
-interface SensorListState {
-  sensors: {}[];
-  loading: boolean;
-  error: string;
-}
+type RequestState =
+  | { state: "LOADING" }
+  | { state: "ERROR"; error: string }
+  | { state: "LOADED"; sensors: Sensor[] };
 
-class SensorList extends React.Component<{}, SensorListState> {
-  state = {
-    sensors: [],
-    loading: true,
-    error: ""
-  };
+const SensorList: React.FC = () => {
+  const [request, setRequest] = useState<RequestState>({ state: "LOADING" });
 
-  componentDidMount() {
+  useEffect(() => {
     getSensors()
-      .then(sensors => this.setState({ sensors, loading: false }))
+      .then(sensors => setRequest({ sensors, state: "LOADED" }))
       .catch(err => {
         console.error(err);
-        this.setState({ error: err.message, loading: false });
+        setRequest({ error: err.message, state: "ERROR" });
       });
-  }
+  }, []);
 
-  render() {
-    const { loading, sensors, error } = this.state;
-    if (error) {
-      return <div className="SensorListError">{error}</div>;
-    }
-    if (loading) {
-      return <div className="SensorListLoading">Loading...</div>;
-    }
+  if (request.state === "ERROR") {
+    return <div className="SensorListError">{request.error}</div>;
+  } else if (request.state === "LOADING") {
+    return <div className="SensorListLoading">Loading...</div>;
+  } else {
     return (
       <div className="SensorList">
-        {sensors.map(({ id, name, description }) => (
+        {request.sensors.map(({ id, name, description }) => (
           <div key={id} className="SensorListItem">
             <div className="SensorListName">{name}</div>
             <div className="SensorListDescription">{description}</div>
@@ -44,6 +36,6 @@ class SensorList extends React.Component<{}, SensorListState> {
       </div>
     );
   }
-}
+};
 
 export default SensorList;
