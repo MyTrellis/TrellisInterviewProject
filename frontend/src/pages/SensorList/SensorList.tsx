@@ -22,20 +22,22 @@ const SensorList: React.FC = () => {
 
   if (request.state === "ERROR") {
     return <ErrorText>{request.error}</ErrorText>;
-  } else if (request.state === "LOADING") {
-    return <LoadingText>Loading...</LoadingText>;
-  } else {
-    return (
-      <ListContainer>
-        {request.sensors.map(({ id, name, description }) => (
-          <SensorCard key={id}>
-            <Name>{name}</Name>
-            <div>{description}</div>
-          </SensorCard>
-        ))}
-      </ListContainer>
-    );
   }
+
+  if (request.state === "LOADING") {
+    return <LoadingText>Loading...</LoadingText>;
+  }
+
+  return (
+    <ListContainer>
+      {request.sensors.map(({ id, name, description }) => (
+        <SensorCard key={id}>
+          <Name>{name}</Name>
+          <div>{description}</div>
+        </SensorCard>
+      ))}
+    </ListContainer>
+  );
 };
 
 const ListContainer = styled.div`
