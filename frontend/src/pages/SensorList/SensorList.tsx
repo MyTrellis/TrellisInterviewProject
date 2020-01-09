@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SensorList.css";
+import styled from "styled-components";
 
 import { getSensors, Sensor } from "../../services/SensorService";
 
@@ -21,21 +21,49 @@ const SensorList: React.FC = () => {
   }, []);
 
   if (request.state === "ERROR") {
-    return <div className="SensorListError">{request.error}</div>;
+    return <ErrorText>{request.error}</ErrorText>;
   } else if (request.state === "LOADING") {
-    return <div className="SensorListLoading">Loading...</div>;
+    return <LoadingText>Loading...</LoadingText>;
   } else {
     return (
-      <div className="SensorList">
+      <ListContainer>
         {request.sensors.map(({ id, name, description }) => (
-          <div key={id} className="SensorListItem">
-            <div className="SensorListName">{name}</div>
-            <div className="SensorListDescription">{description}</div>
-          </div>
+          <SensorCard key={id}>
+            <Name>{name}</Name>
+            <div>{description}</div>
+          </SensorCard>
         ))}
-      </div>
+      </ListContainer>
     );
   }
 };
+
+const ListContainer = styled.div`
+  width: 100%;
+`;
+
+const SensorCard = styled.div`
+  background: white;
+  margin: auto;
+  margin-top: 24px;
+  max-width: 400px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 0px 8px 8px 0px;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  border-left: 6px solid #87c38f;
+`;
+
+const Name = styled.div`
+  font-size: 2rem;
+`;
+
+const ErrorText = styled.div`
+  margin: 24px;
+`;
+
+const LoadingText = styled.div`
+  margin: 24px;
+`;
 
 export default SensorList;

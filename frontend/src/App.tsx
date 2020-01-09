@@ -1,16 +1,32 @@
 import React from "react";
-import "./App.css";
+import styled from "styled-components";
+
 import SensorList from "./pages/SensorList/SensorList";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Sensor Viewer</h1>
-      </header>
+    <Container>
+      <Header>
+        <Title>Sensor Viewer</Title>
+      </Header>
       <SensorList />
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  text-align: center;
+`;
+
+const Header = styled.header`
+  background-color: #226f54;
+  height: 70px;
+  padding: 20px;
+  color: white;
+`;
+
+const Title = styled.h1`
+  font-size: 2em;
+`;
 
 export default App;

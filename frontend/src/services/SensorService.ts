@@ -6,11 +6,10 @@ export interface Sensor {
   description: string;
 }
 
-export const getSensors = () => {
-  return fetch(`${serverURL}/sensors`).then(res => {
-    if (res.status !== 200) {
-      throw new Error("Error fetching sensors");
-    }
-    return res.json() as Promise<Sensor[]>;
-  });
+export const getSensors = async () => {
+  const res = await fetch(`${serverURL}/sensors`);
+  if (res.status !== 200) {
+    throw new Error("Error fetching sensors");
+  }
+  return res.json() as Promise<Sensor[]>;
 };
